@@ -1,0 +1,1 @@
+<a href='https://ci.my.to:9090/job/WizTest-SpringBoard/'><img src='https://ci.my.to:9090/buildStatus/icon?job=WizTest-SpringBoard'></a>
