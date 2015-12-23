@@ -142,6 +142,63 @@ public class BDao {
 		return dto;
 	}
 	
+	public void modify(String bId, String bName, String bTitle, String bContent) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		StringBuffer query = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			query = new StringBuffer();
+			
+			query.append("UPDATE MVC_BOARD ");
+			query.append("SET bName = ?, bTitle = ?, bContent = ? ");
+			query.append("WHERE bId = ? ");
+			
+			preparedStatement = connection.prepareStatement(query.toString());
+			
+			preparedStatement.setString(1, bName);
+			preparedStatement.setString(2, bTitle);
+			preparedStatement.setString(3, bContent);
+			preparedStatement.setInt(4, Integer.parseInt(bId));
+			
+			int rn = preparedStatement.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(null != query) { query.setLength(0); query = null; }
+			if(null != preparedStatement) try{ preparedStatement.close(); } catch(Exception e) { e.printStackTrace(); }
+			if(null != connection) try{ connection.close(); } catch(Exception e) { e.printStackTrace(); }
+		}
+	}
+	
+	
+	public void delete(String bId) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		StringBuffer query = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			query = new StringBuffer();
+			
+			query.append("DELETE FROM MVC_BOARD ");
+			query.append("WHERE bId = ? ");
+			
+			preparedStatement = connection.prepareStatement(query.toString());
+			
+			preparedStatement.setInt(1, Integer.parseInt(bId));
+			
+			int rn = preparedStatement.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(null != query) { query.setLength(0); query = null; }
+			if(null != preparedStatement) try{ preparedStatement.close(); } catch(Exception e) { e.printStackTrace(); }
+			if(null != connection) try{ connection.close(); } catch(Exception e) { e.printStackTrace(); }
+		}
+	}
+	
 	public void upHit(String bId) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;

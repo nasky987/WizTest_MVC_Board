@@ -10,7 +10,7 @@
 		maxIdle = "3"
 		maxWaitMillis = "10000"
 		driverClassName = "org.mariadb.jdbc.Driver"
-		url = "jdbc:mariadb://dbms.my.to:3306/studydb"
+		url = "jdbc:mariadb://mariadb.my.to:3306/studydb"
 		username = "testuser"
 		password = "testuser"
 		closeMethod = "close" />
@@ -24,7 +24,7 @@
 		maxWaitMillis = "10000"	
 		driverClassName = "oracle.jdbc.driver.OracleDriver"
 		name = "jdbc/Oracle11g"
-		url = "jdbc:oracle:thin:@dbms.my.to:1521:DBSVR"
+		url = "jdbc:oracle:thin:@oracle.my.to:1521:DBSVR"
 		username = "testuser"
 		password = "testuser"
 	/>
