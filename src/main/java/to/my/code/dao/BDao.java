@@ -33,7 +33,7 @@ public class BDao {
 		return (ArrayList<BDto>) template.query(query.toString(), new BeanPropertyRowMapper<BDto>(BDto.class));
 	}
 	
-	public void write(String bName, String bTitle, String bContent) {
+	public void write(final String bName, final String bTitle, final String bContent) {
 		template.update(new PreparedStatementCreator() {
 			
 			@Override
@@ -53,7 +53,7 @@ public class BDao {
 		});
 	}
 	
-	public BDto contentView(String bId) {
+	public BDto contentView(final String bId) {
 		upHit(bId);
 		
 		StringBuffer query = new StringBuffer();
@@ -65,7 +65,7 @@ public class BDao {
 		return template.queryForObject(query.toString(), new Object[]{bId}, new BeanPropertyRowMapper<BDto>(BDto.class));
 	}
 
-	public void modify(String bId, String bName, String bTitle, String bContent) {
+	public void modify(final String bId, final String bName, final String bTitle, final String bContent) {
 		StringBuffer query = new StringBuffer();
 		
 		query.append("UPDATE MVC_BOARD ");
@@ -84,7 +84,7 @@ public class BDao {
 		});
 	}
 	
-	public void delete(String bId) {
+	public void delete(final String bId) {
 		StringBuffer query = new StringBuffer();
 		
 		query.append("DELETE FROM MVC_BOARD ");
@@ -99,7 +99,7 @@ public class BDao {
 		});
 	}
 	
-	public BDto replyView(String bId) {
+	public BDto replyView(final String bId) {
 		StringBuffer query = new StringBuffer();
 		
 		query.append("SELECT * ");
@@ -109,7 +109,7 @@ public class BDao {
 		return template.queryForObject(query.toString(), new Object[]{bId}, new BeanPropertyRowMapper<BDto>(BDto.class));
 	}
 	
-	public void reply(String bId, String bName, String bTitle, String bContent, String bGroup, String bStep, String bIndent) {
+	public void reply(final String bId, final String bName, final String bTitle, final String bContent, final String bGroup, final String bStep, final String bIndent) {
 		replyShape(bGroup, bStep);
 		
 		StringBuffer query = new StringBuffer();
@@ -131,7 +131,7 @@ public class BDao {
 		});
 	}
 	
-	public void upHit(String bId) {
+	public void upHit(final String bId) {
 		StringBuffer query = new StringBuffer();
 		
 		query.append("UPDATE MVC_BOARD ");
@@ -147,7 +147,7 @@ public class BDao {
 		});
 	}
 	
-	public void replyShape(String bGroup, String bStep) {
+	public void replyShape(final String bGroup, final String bStep) {
 		StringBuffer query = new StringBuffer();
 		
 		query.append("UPDATE MVC_BOARD ");
