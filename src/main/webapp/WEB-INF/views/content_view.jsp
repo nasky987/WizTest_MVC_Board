@@ -41,7 +41,7 @@
 					<input type="submit" value="수정">&nbsp;&nbsp;
 					<a href="list">목록보기</a>&nbsp;&nbsp;
 					<a href="delete?bId=${content_view.bId}">삭제</a>&nbsp;&nbsp;
-					<a href="reply_view?bId?${content_view.bId}">답변</a>
+					<a href="reply_view?bId=${content_view.bId}">답변</a>
 				</td>
 			</tr>
 		</table>
