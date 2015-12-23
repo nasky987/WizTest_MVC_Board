@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+<!-- 
+	<Resource
+		auth = "Container"
+		name = "jdbc/Maria"
+		type = "javax.sql.DataSource"
+		maxTotal = "10"
+		maxIdle = "3"
+		maxWaitMillis = "10000"
+		driverClassName = "org.mariadb.jdbc.Driver"
+		url = "jdbc:mariadb://dbms.my.to:3306/studydb"
+		username = "testuser"
+		password = "testuser"
+		closeMethod = "close" />
+-->	
+<!-- url = "jdbc:mariadb://192.168.0.24:3306/studydb" -->
+	<Resource
+		auth = "Container"
+		type = "javax.sql.DataSource"
+		maxTotal = "10"
+		maxIdle = "3"
+		maxWaitMillis = "10000"	
+		driverClassName = "oracle.jdbc.driver.OracleDriver"
+		name = "jdbc/Oracle11g"
+		url = "jdbc:oracle:thin:@dbms.my.to:1521:DBSVR"
+		username = "testuser"
+		password = "testuser"
+	/>
+<!-- url = "jdbc:oracle:thin:@192.168.0.4:1521:DBSVR" -->
+</Context>
