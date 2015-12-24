@@ -23,7 +23,7 @@ public class SecurityController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/index.html", method = RequestMethod.GET)
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -37,12 +37,12 @@ public class SecurityController {
 		return "index";
 	}
 	
-	@RequestMapping("/login.html")
+	@RequestMapping("/login")
 	public String login(Locale locale, Model model) {
 		return "security/login";
 	}
 	
-	@RequestMapping("/welcome.html")
+	@RequestMapping("/welcome")
 	public String welcome(Locale locale, Model model) {
 		return "security/welcome";
 	}
