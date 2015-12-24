@@ -25,16 +25,22 @@ public class TicketCommandImpl implements TicketCommand {
 	
 	@Override
 	public void execute(final TicketDto ticketDto) {
-		transactionTemplate2.execute(new TransactionCallbackWithoutResult(){
-
-			@Override
-			protected void doInTransactionWithoutResult(TransactionStatus arg0) {
-				ticketDto.setAmount("1");
-				ticketDao.buyTicket(ticketDto);
-				
-				ticketDto.setAmount("5");
-				ticketDao.buyTicket(ticketDto);
-			}
-		});
+		ticketDto.setAmount("1");
+		ticketDao.buyTicket(ticketDto);
+		
+		ticketDto.setAmount("5");
+		ticketDao.buyTicket(ticketDto);
+		
+//		transactionTemplate2.execute(new TransactionCallbackWithoutResult(){
+//
+//			@Override
+//			protected void doInTransactionWithoutResult(TransactionStatus arg0) {
+//				ticketDto.setAmount("1");
+//				ticketDao.buyTicket(ticketDto);
+//				
+//				ticketDto.setAmount("5");
+//				ticketDao.buyTicket(ticketDto);
+//			}
+//		});
 	}
 }
