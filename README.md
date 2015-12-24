@@ -9,3 +9,15 @@
 #### Transaction 테스트
 [https://java.my.to/code/buy_ticket](https://java.my.to/code/buy_ticket) 로 배포 적용 테스트 확인 가능
 * 4장까지 구매 가능하며, 4장 이상일 경우, 데이터베이스 체크에 의해 insert 실패 되며, 결제 테이블과 발권 테이블에 데이터가 들어가지 않는 것을 테스트하는 내용
+
+#### Spring Security 테스트
+[https://java.my.to/code/login](https://java.my.to/code/login) 로 배포 적용 테스트 확인 가능  
+간단한 Spring Security 설정에 대해 알아봄
+/login와 /welcome으로 접속하는 url에 대해서 프록시를 이용하여 중간에서 로그인을 하도록 유도함  
+커스텀 로그인 페이지를 이용하여 로그인한 사용자의 name값 즉 id를 보여줌.
+* /login : user, admin 접근 가능
+* /welcome : admin만 접근 가능
+
+사용자 정보  
+user : user  
+admin : admin
