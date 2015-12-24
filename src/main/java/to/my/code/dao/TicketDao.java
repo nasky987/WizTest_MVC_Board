@@ -15,14 +15,14 @@ import to.my.code.dto.TicketDto;
 
 public class TicketDao {
 	JdbcTemplate template;
-	TransactionTemplate transactionTemplate;
+	TransactionTemplate transactionTemplate1;
 	
 	public void setTemplate(JdbcTemplate template) {
 		this.template = template;
 	}
 
-	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
-		this.transactionTemplate = transactionTemplate;
+	public void setTransactionTemplate1(TransactionTemplate transactionTemplate1) {
+		this.transactionTemplate1 = transactionTemplate1;
 	}
 	
 	public TicketDao() {
@@ -34,7 +34,7 @@ public class TicketDao {
 		System.out.println("dto.getConsumerId() : " + dto.getConsumerId());
 		System.out.println("dto.getAmount() : " + dto.getAmount());
 		
-		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+		transactionTemplate1.execute(new TransactionCallbackWithoutResult() {
 			@Override
 			protected void doInTransactionWithoutResult(TransactionStatus arg0) {
 				template.update(new PreparedStatementCreator() {

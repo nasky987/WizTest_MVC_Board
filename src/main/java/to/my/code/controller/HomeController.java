@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import to.my.code.dao.TicketDao;
+import to.my.code.command.TicketCommand;
 import to.my.code.dto.TicketDto;
 
 /**
@@ -13,15 +13,13 @@ import to.my.code.dto.TicketDto;
  */
 @Controller
 public class HomeController {
-	
-	
-	private TicketDao dao;
+	private TicketCommand ticketCommand;
 	
 	@Autowired
-	public void setDao(TicketDao dao) {
-		this.dao = dao;
+	public void setTicketCommand(TicketCommand ticketCommand) {
+		this.ticketCommand = ticketCommand;
 	}
-
+	
 	@RequestMapping("/buy_ticket")
 	public String buy_ticket() {
 		return "ticket/buy_ticket";
@@ -33,7 +31,7 @@ public class HomeController {
 		System.out.println("ticketDto = " + ticketDto.getConsumerId());
 		System.out.println("ticketDto = " + ticketDto.getAmount());
 		
-		dao.buyTicket(ticketDto);
+		ticketCommand.execute(ticketDto);
 		
 		model.addAttribute("ticketInfo", ticketDto);
 		
