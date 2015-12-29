@@ -10,10 +10,12 @@
 	</select>
 	
 	<insert id="writeDao">
-	
+		INSERT INTO board (mId, mWriter, mContent)
+		VALUES (BOARD_SEQ.NEXTVAL, #{param1}, #{param2})
 	</insert>
 	
 	<delete id="deleteDao">
-	
+		DELETE FROM board
+		WHERE mId = #{param1}
 	</delete>
 </mapper>

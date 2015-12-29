@@ -47,7 +47,9 @@ public class MyBatisController {
 	
 	@RequestMapping("/mybatis/write")
 	public String write(HttpServletRequest request, Model model) {
-		cdao.writeDao(request.getParameter("mWriter"), request.getParameter("mContent"));
+//		cdao.writeDao(request.getParameter("mWriter"), request.getParameter("mContent"));
+		IDao dao = sqlSession.getMapper(IDao.class);
+		dao.writeDao(request.getParameter("mWriter"), request.getParameter("mContent"));
 		
 		return "redirect:/mybatis/list";
 	}
@@ -59,7 +61,9 @@ public class MyBatisController {
 	
 	@RequestMapping("/mybatis/delete")
 	public String delete(HttpServletRequest request, Model model){
-		cdao.deleteDao(request.getParameter("mId"));
+//		cdao.deleteDao(request.getParameter("mId"));
+		IDao dao = sqlSession.getMapper(IDao.class);
+		dao.deleteDao(request.getParameter("mId"));
 		
 		return "redirect:/mybatis/list";
 	}
