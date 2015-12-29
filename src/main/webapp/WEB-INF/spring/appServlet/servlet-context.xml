@@ -66,4 +66,12 @@
 		<beans:property name="transactionTemplate2" ref="transactionTemplate2" />
 	</beans:bean>
 	
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="mapperLocations" value="classpath:to/my/code/dao/mapper/*.xml"/>
+	</beans:bean>
+	
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
+	</beans:bean>
 </beans:beans>

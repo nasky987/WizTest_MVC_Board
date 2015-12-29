@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import to.my.code.dao.ContentDao;
+import to.my.code.dao.IDao;
 import to.my.code.dto.ContentDto;
 
 /**
@@ -21,14 +23,19 @@ public class MyBatisController {
 	ContentDao cdao;
 	
 	@Autowired
+	private SqlSession sqlSession;
+	
+	@Autowired
 	public void setCdao(ContentDao cdao) {
 		this.cdao = cdao;
 	}
 	
 	@RequestMapping("/mybatis/list")
 	public String list(Model model) {
-		ArrayList<ContentDto> dtos = cdao.listDao();
-		model.addAttribute("list", dtos);
+//		ArrayList<ContentDto> dtos = cdao.listDao();
+//		model.addAttribute("list", dtos);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		model.addAttribute("list", dao.listDao());
 		
 		return "/mybatis/list";
 	}
