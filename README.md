@@ -21,3 +21,7 @@
 사용자 정보  
 user : user  
 admin : admin
+
+#### Spring - Mybatis 테스트
+[https://java.my.to/code/mybatis/list](https://java.my.to/code/mybatis/list) 로 배포 적용 테스트 확인 가능
+간단하게 JDBC를 이용한 JDBC Template 방법에서 Mybatis의 SessionTemplate 적용한 내용
